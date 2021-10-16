@@ -17,11 +17,13 @@ type ContextProps = {
 interface DataContextValues {
   data: StudentInformation[];
   setData: Dispatch<SetStateAction<StudentInformation[]>>;
+  filterData: (input: string) => void;
 }
 
 const DataContext = createContext<DataContextValues>({
   data: [],
   setData: () => null,
+  filterData: () => null,
 });
 
 export default DataContext;
@@ -33,9 +35,14 @@ export const DataProvider = ({ children }: ContextProps): JSX.Element => {
     getApiData().then((data) => setData(data.students));
   }, []);
 
+  const filterData = (input: string) => {
+    // work on this next
+  }
+
   const value: DataContextValues = {
     data,
     setData,
+    filterData,
   };
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;

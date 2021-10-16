@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { DataProvider } from './contexts/context';
+import './index.css';
 import App from './App';
 
 ReactDOM.render(

@@ -4,22 +4,8 @@
   display: flex;
   flex-wrap: wrap;
   font-weight: 400;
-  font-family: 'Raleway', sans-serif;
   padding: 1rem;
   border-bottom: 2px solid #e2e0e0;
-}
-
-h2 {
-  text-transform: uppercase;
-  font-weight: 800;
-  font-size: 2.5rem;
-  letter-spacing: -.1rem;
-  margin-top: 0;
-}
-
-p {
-  font-weight: 400;
-  margin: 0.5rem;
 }
 
 .icon {
