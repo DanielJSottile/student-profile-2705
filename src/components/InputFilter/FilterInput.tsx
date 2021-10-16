@@ -1,14 +1,21 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, useContext } from 'react';
 import styles from './FilterInput.module.css';
-import { SEARCH_BY_NAME } from "../../utils/constants";
+import { SEARCH_BY_NAME } from '../../utils/constants';
+import DataContext from '../../contexts/context';
 
 const FilterInput: FunctionComponent = () => {
+  const { filterInput, setFilterInput } = useContext(DataContext);
 
-  const [input, setInput] = useState('');
+  return (
+    <>
+      <input
+        className={styles['input']}
+        value={filterInput}
+        placeholder={SEARCH_BY_NAME}
+        onChange={(e) => setFilterInput(e.target.value)}
+      />
+    </>
+  );
+};
 
-  return <>
-  <input className={styles['input']} value={input} placeholder={SEARCH_BY_NAME} onChange={(e) => setInput(e.target.value)}/>
-  </>;
-}
-
-export default FilterInput
+export default FilterInput;
