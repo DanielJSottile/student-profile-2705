@@ -1,3 +1,5 @@
+import { APIURL } from "../utils/constants";
+
 const buildConfig = (config: any) => {
   return {
     ...config,
@@ -10,8 +12,7 @@ const buildConfig = (config: any) => {
 const parseJson =  async (response: Response) => {
   const json = await response.json();
   return {
-    status: response.status,
-    statusText: response.statusText,
+    ok: response.ok,
     json
   };
 }
@@ -20,12 +21,17 @@ export const fetchData = async (urlString: string, config: any) => {
   const fetchResult = await fetch(urlString, buildConfig(config));
   const res = await parseJson(fetchResult);
 
-  if (res.status < 200 || res.status <= 300) {
+  if (!res.ok) {
     throw new Error(res.json.message)
   }
+
   return res.json;
 }
 
-export const apiGet = (url: string) => {
+export const apiGet = (url: string): Promise<any> => {
   return fetchData(url, {method: "GET"});
+}
+
+export const getApiData = () => {
+  return apiGet(APIURL);
 }
