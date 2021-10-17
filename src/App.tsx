@@ -1,7 +1,7 @@
 import { useContext, ChangeEvent } from 'react';
-import DataContext from './contexts/context';
 import StudentList from './components/StudentList';
 import Input from './components/Input/Input';
+import DataContext from './contexts/context';
 import { SEARCH_BY_NAME, SEARCH_BY_TAG } from './utils/constants';
 
 const App = () => {

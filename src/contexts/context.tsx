@@ -6,9 +6,13 @@ import {
   Dispatch,
   SetStateAction,
 } from 'react';
-import { StudentData, StudentInformation } from '../@types';
-import { nameContainsSubstring, arrayContainsSubstring } from '../utils/functions';
 import { getApiData } from '../services/api';
+import {
+  nameStartsWithSubstring,
+  arrayContainsSubstring,
+} from '../utils/functions';
+import { StudentData, StudentInformation } from '../@types';
+
 
 type ContextProps = {
   /** React nodes as children */
@@ -59,6 +63,13 @@ export const DataProvider = ({ children }: ContextProps): JSX.Element => {
     );
   }, []);
 
+  /**
+   *
+   * @param {string} filterInput - the incoming string from a name filter user input
+   * @param {string} tagInput - the incoming string from a tag filter user input
+   * @param {StudentData[]} arr - an array of StudentData objects
+   * @returns {StudentData[]} - a filtered array of StudentData objects
+   */
   const filterData = (
     filterInput: string,
     tagInput: string,
@@ -66,15 +77,25 @@ export const DataProvider = ({ children }: ContextProps): JSX.Element => {
   ) => {
     const [firstFilter] = filterInput.split(' ');
     /* may not need last...*/
-    return arr.filter((student) => {
-      return (
-        nameContainsSubstring(student.firstName, firstFilter) ||
-        nameContainsSubstring(student.lastName, firstFilter)
-    );
-  }).filter(student => arrayContainsSubstring(student.tags, tagInput));
-}
+    return arr
+      .filter((student) => {
+        return (
+          nameStartsWithSubstring(student.firstName, firstFilter) ||
+          nameStartsWithSubstring(student.lastName, firstFilter)
+        );
+      })
+      .filter(
+        (student) => arrayContainsSubstring(student.tags, tagInput) || !tagInput
+      );
+  };
 
-
+  /**
+   * 
+   * @param {string} tagString - incoming tag string being added to a student
+   * @param {number} studentId - the number id of the student
+   * @returns {void} - This function remaps the student data and inserts a tag into the
+   * student tags list of the appropriate id
+   */
   const addTag = (tagString: string, studentId: number) => {
     setData(
       data.map((student) => {

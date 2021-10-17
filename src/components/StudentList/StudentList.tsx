@@ -1,7 +1,8 @@
 import { useContext, FunctionComponent } from 'react';
+import Student from '../Student';
 import DataContext from '../../contexts/context';
 import { StudentData } from '../../@types';
-import Student from '../Student';
+
 
 const StudentList: FunctionComponent = () => {
   const { data, filterData, filterInput, tagInput } = useContext(DataContext);

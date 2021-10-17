@@ -5,8 +5,8 @@ import {
   ChangeEvent,
   KeyboardEvent,
 } from 'react';
-import DataContext from '../../contexts/context';
 import Input from '../Input';
+import DataContext from '../../contexts/context';
 import { ADD_A_TAG } from '../../utils/constants';
 import styles from './Tags.module.css';
 
