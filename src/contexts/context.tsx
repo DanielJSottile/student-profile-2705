@@ -11,6 +11,7 @@ import { nameContainsSubstring, arrayContainsSubstring } from '../utils/function
 import { getApiData } from '../services/api';
 
 type ContextProps = {
+  /** React nodes as children */
   children: ReactNode;
 };
 

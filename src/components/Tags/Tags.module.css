@@ -1,0 +1,26 @@
+.add-tag-input {
+  width: 50%;
+  font-size: 1rem;
+  border: none;
+  padding: .75rem;
+  border-bottom: 2px solid #d1d1d1;
+}
+
+.add-tag-input::placeholder {
+  color: #d1d1d1;
+}
+
+.tag-list {
+  padding-top: 2rem;
+  padding-bottom: 2rem
+}
+
+.tag {
+  padding: 1rem;
+  background-color: #d1d1d1;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  margin-left: .25rem;
+  margin-right: .25rem;
+  border-radius: 1rem;
+}

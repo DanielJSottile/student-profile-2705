@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'react';
 import styles from './Grades.module.css';
 type GradeProps = {
+  /** student grades in an array of strings */
   grades: string[];
 };
 
