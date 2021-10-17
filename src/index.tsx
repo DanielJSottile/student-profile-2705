@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { DataProvider } from './contexts/context';
+import { DataProvider } from './contexts/DataContext';
 import './index.css';
 import App from './App';
 

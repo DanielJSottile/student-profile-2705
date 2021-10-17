@@ -1,12 +1,12 @@
 import {
   useState,
-  useMemo,
+  useEffect,
   createContext,
   ReactNode,
   Dispatch,
   SetStateAction,
 } from 'react';
-import { getApiData } from '../services/api';
+import { getApiData } from '../services/apiService';
 import {
   nameStartsWithSubstring,
   arrayContainsSubstring,
@@ -51,7 +51,7 @@ export const DataProvider = ({ children }: ContextProps): JSX.Element => {
   const [filterInput, setFilterInput] = useState('');
   const [tagInput, setTagInput] = useState('');
 
-  useMemo(() => {
+  useEffect(() => {
     getApiData().then((data) =>
       setData(
         /* Adding tags key to incoming data */

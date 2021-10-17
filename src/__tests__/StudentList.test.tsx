@@ -1,7 +1,7 @@
 import { render, within, cleanup, waitFor } from '@testing-library/react';
 import StudentList from '../components/StudentList';
 import '@testing-library/jest-dom';
-import DataContext from '../contexts/context';
+import DataContext from '../contexts/DataContext';
 
 describe('<StudentList />', () => {
 

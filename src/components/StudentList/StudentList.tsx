@@ -1,6 +1,6 @@
 import { useContext, FunctionComponent } from 'react';
 import Student from '../Student';
-import DataContext from '../../contexts/context';
+import DataContext from '../../contexts/DataContext';
 import { StudentData } from '../../@types';
 
 type StudentListProps = {
