@@ -1,6 +1,5 @@
 .student {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
+  display: flex;
   flex-wrap: wrap;
   font-weight: 400;
   padding: 1rem;
@@ -8,8 +7,6 @@
 }
 
 .icon {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
   width: 12rem;
   align-self: flex-start;
   border: 1px solid #d1d1d1;
@@ -25,9 +22,8 @@
 }
 
 .button {
-  grid-column: 3 / 4;
-  grid-row: 1 / 2;
-  justify-self: end;
+  position: absolute;
+  right: 1rem;
   margin-top: -2rem;
   width: 4rem;
   height: 5rem;
