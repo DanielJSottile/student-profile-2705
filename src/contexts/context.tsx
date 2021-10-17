@@ -1,6 +1,7 @@
 import {
   useState,
   useEffect,
+  useMemo,
   createContext,
   ReactNode,
   Dispatch,
@@ -47,7 +48,7 @@ export const DataProvider = ({ children }: ContextProps): JSX.Element => {
   const [filterInput, setFilterInput] = useState('');
   const [tagInput, setTagInput] = useState('');
 
-  useEffect(() => {
+  useMemo(() => {
     getApiData().then((data) =>
       setData(
         /* Adding tags key to incoming data */
