@@ -15,20 +15,30 @@ type TagsProps = {
   tags: string[];
   /** id of student as a string */
   id: string;
+  /** test id */
+  testId?: string;
 };
 
-const Tags: FunctionComponent<TagsProps> = ({ tags, id }) => {
+const Tags: FunctionComponent<TagsProps> = ({
+  tags,
+  id,
+  testId = 'tags-container',
+}) => {
   const { addTag } = useContext(DataContext);
   const [tagInput, setAddTagInput] = useState('');
 
   const tagList = tags.map((tag, index) => (
-    <span key={index} className={styles['tag']}>
+    <span key={index} className={styles['tag']} data-testid="tag">
       {tag}
     </span>
   ));
   return (
-    <>
-      {!!tagList.length && <div className={styles['tag-list']}>{tagList}</div>}
+    <div data-testid={testId}>
+      {!!tagList.length && (
+        <div className={styles['tag-list']} data-testid="tag-list">
+          {tagList}
+        </div>
+      )}
       <Input
         className={styles['add-tag-input']}
         placeholder={ADD_A_TAG}
@@ -36,14 +46,14 @@ const Tags: FunctionComponent<TagsProps> = ({ tags, id }) => {
         onChangeCallback={(e: ChangeEvent<HTMLInputElement>) =>
           setAddTagInput(e.target.value)
         }
-        onKeyDownCallback={(e: KeyboardEvent<HTMLInputElement>) => {
-          if (e.key === 'Enter') {
+        onKeyPressCallback={(e: KeyboardEvent<HTMLInputElement>) => {
+          if (e.key === 'Enter' && !!tagInput) {
             addTag(tagInput, Number(id));
             setAddTagInput('');
           }
         }}
       />
-    </>
+    </div>
   );
 };
 

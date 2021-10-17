@@ -13,7 +13,6 @@ import {
 } from '../utils/functions';
 import { StudentData, StudentInformation } from '../@types';
 
-
 type ContextProps = {
   /** React nodes as children */
   children: ReactNode;
@@ -90,7 +89,7 @@ export const DataProvider = ({ children }: ContextProps): JSX.Element => {
   };
 
   /**
-   * 
+   *
    * @param {string} tagString - incoming tag string being added to a student
    * @param {number} studentId - the number id of the student
    * @returns {void} - This function remaps the student data and inserts a tag into the
