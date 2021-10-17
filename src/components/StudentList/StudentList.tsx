@@ -6,7 +6,7 @@ import Student from '../Student';
 const StudentList: FunctionComponent = () => {
   const { data, filterData, filterInput, tagInput } = useContext(DataContext);
 
-  const studentList = filterData(filterInput, tagInput, data).map((info: StudentData, index) => <Student key={index} info={info} />);
+  const studentList = filterData(filterInput, tagInput, data).map((info: StudentData) => <Student key={info.id} info={info} />);
   return <>{studentList}</>;
 };
 
