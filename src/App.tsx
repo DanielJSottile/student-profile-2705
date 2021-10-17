@@ -1,14 +1,32 @@
+import { useContext, ChangeEvent } from 'react';
+import DataContext from './contexts/context';
 import StudentList from './components/StudentList';
-import FilterInput from './components/InputFilter/FilterInput';
+import Input from './components/Input/Input';
+import { SEARCH_BY_NAME, SEARCH_BY_TAG } from './utils/constants';
 
 const App = () => {
+  const { filterInput, setFilterInput, tagInput, setTagInput } =
+    useContext(DataContext);
 
   return (
     <>
-      <FilterInput/>
-      <StudentList/>
+      <Input
+        value={filterInput}
+        placeholder={SEARCH_BY_NAME}
+        onChangeCallback={(e: ChangeEvent<HTMLInputElement>) =>
+          setFilterInput(e.target.value)
+        }
+      />
+      <Input
+        value={tagInput}
+        placeholder={SEARCH_BY_TAG}
+        onChangeCallback={(e: ChangeEvent<HTMLInputElement>) =>
+          setTagInput(e.target.value)
+        }
+      />
+      <StudentList />
     </>
   );
-}
+};
 
 export default App;

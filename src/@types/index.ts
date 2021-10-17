@@ -9,3 +9,7 @@ export interface StudentInformation {
   pic: string;
   skill: string;
 }
+
+export interface StudentData extends StudentInformation {
+  tags: string[];
+}

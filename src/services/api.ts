@@ -1,4 +1,4 @@
-import { APIURL } from "../utils/constants";
+import { API_URL } from "../utils/constants";
 
 const buildConfig = (config: any) => {
   return {
@@ -32,6 +32,6 @@ export const apiGet = (url: string): Promise<any> => {
   return fetchData(url, {method: "GET"});
 }
 
-export const getApiData = () => {
-  return apiGet(APIURL);
+export const getApiData = (): Promise<any> => {
+  return apiGet(API_URL);
 }
